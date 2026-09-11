@@ -2,7 +2,25 @@
 
 Download the latest packages from the [Releases page](https://github.com/eL-iam123/telepromptr-downloads/releases/latest).
 
-The release workflow publishes Linux and Windows installers from the private source repository. Repository maintainers must add a GitHub fine-grained token with `Contents: Read and write` access to `eL-iam123/telepromptr-downloads` as the `PUBLIC_RELEASE_TOKEN` secret in `eL-iam123/telepromptr-app`.
+## Enabling automatic releases
+
+The private source repository publishes tagged installers to this public repository.
+
+1. Open GitHub **Settings → Developer settings → Personal access tokens → Fine-grained tokens**.
+2. Create a token named `Telepromptr public releases`.
+3. Set **Resource owner** to `eL-iam123`, choose **Only select repositories**, and select `telepromptr-downloads`.
+4. Under **Repository permissions**, set **Contents** to **Read and write**. No other permissions are needed.
+5. Copy the token immediately; GitHub will not show it again.
+6. Open [source repository secrets](https://github.com/eL-iam123/telepromptr-app/settings/secrets/actions), choose **New repository secret**, set the name to `PUBLIC_RELEASE_TOKEN`, and paste the token.
+
+To publish, update the version in `src-tauri/tauri.conf.json`, then create and push a tag:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The workflow builds Linux and Windows installers and attaches them to a release in this repository.
 
 ## Linux
 
