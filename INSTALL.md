@@ -2,6 +2,8 @@
 
 Download the latest packages from the [Releases page](https://github.com/eL-iam123/telepromptr-downloads/releases/latest).
 
+The release workflow publishes Linux and Windows installers from the private source repository. Repository maintainers must add a GitHub fine-grained token with `Contents: Read and write` access to `eL-iam123/telepromptr-downloads` as the `PUBLIC_RELEASE_TOKEN` secret in `eL-iam123/telepromptr-app`.
+
 ## Linux
 
 ### AppImage
