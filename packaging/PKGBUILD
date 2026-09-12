@@ -1,0 +1,16 @@
+pkgname=telepromptr
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="Offline-first Markdown teleprompter"
+arch=(x86_64)
+url="https://el-iam123.github.io/telepromptr-downloads/"
+license=(custom)
+depends=(fuse2)
+source=("https://github.com/eL-iam123/telepromptr-downloads/releases/download/v${pkgver}/Telepromptr_${pkgver}_amd64.AppImage")
+sha256sums=(SKIP)
+
+package() {
+  install -Dm755 "Telepromptr_${pkgver}_amd64.AppImage" "${pkgdir}/opt/telepromptr/telepromptr"
+  install -d "${pkgdir}/usr/bin"
+  ln -s /opt/telepromptr/telepromptr "${pkgdir}/usr/bin/telepromptr"
+}

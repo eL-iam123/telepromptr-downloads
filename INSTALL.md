@@ -24,6 +24,28 @@ The workflow builds Linux and Windows installers and attaches them to a release 
 
 ## Linux
 
+### One-line curl installer
+
+Install the latest AppImage into `~/.local/bin`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/eL-iam123/telepromptr-downloads/main/install.sh | bash
+```
+
+The installer downloads only the latest AppImage from this repository's GitHub Release.
+
+### Arch Linux
+
+The repository includes a [PKGBUILD](./packaging/PKGBUILD) for Arch Linux. Build a local package:
+
+```bash
+git clone https://github.com/eL-iam123/telepromptr-downloads.git
+cd telepromptr-downloads/packaging
+makepkg -si
+```
+
+For AppImage users, install `fuse2` first. The PKGBUILD targets x86_64 releases.
+
 ### AppImage
 
 Download the `.AppImage`, make it executable, and run it:
